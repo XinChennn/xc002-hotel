@@ -91,6 +91,6 @@
 
 5. 使用黑窗口（cmd）进入 `~\hotel\web` 目录，执行 `npm install`，成功之后执行 `npm run dev` 启动前端项目
 
-**完整代码收费 +  <img src="E:/devEnvironment/IDEA_Programs/bookstore/pictures/qq.svg" width="20"> 316595344     或   <img src="E:/devEnvironment/IDEA_Programs/bookstore/pictures/weChat.svg" width="20"> lz316595344  咨询** 
+**完整代码收费 +  <img src="./pictures/qq.svg" width="20"> 316595344     或   <img src="./pictures/weChat.svg" width="20"> lz316595344  咨询**
 
 **接毕业设计和论文**
