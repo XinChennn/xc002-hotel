@@ -12,11 +12,11 @@
 
 **[忻辰的个人博客]👉https://www.ixinjiu.cn/articles/156**
 
-# 基于Java的酒店预订系统设计与实现
+# 基于SpringBoot的酒店预订系统设计与实现
 
 ## 一、系统介绍
 
-基于Java的酒店预订系统设计与实现，平台采用B/S结构，后端采用主流的Springboot框架进行开发，前端采用主流的Vue.js进行开发。
+基于SpringBoot的酒店预订系统设计与实现，平台采用B/S结构，后端采用主流的Springboot框架进行开发，前端采用主流的Vue.js进行开发。
 
 整个平台包括前台和后台两个部分。
 
