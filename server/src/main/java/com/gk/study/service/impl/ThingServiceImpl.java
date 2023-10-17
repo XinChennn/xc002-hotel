@@ -128,7 +128,14 @@ public class ThingServiceImpl extends ServiceImpl<ThingMapper, Thing> implements
     @Override
     public void addCollectCount(String thingId) {
         Thing thing = mapper.selectById(thingId);
-//        thing.setCollectCount(String.valueOf(Integer.parseInt(thing.getCollectCount()) + 1));
+        thing.setCollectCount(String.valueOf(Integer.parseInt(thing.getCollectCount()) + 1));
+        mapper.updateById(thing);
+    }
+
+    // 收藏数减1
+    public void updCollectCount(String thingId) {
+        Thing thing = mapper.selectById(thingId);
+        thing.setCollectCount(String.valueOf(Integer.parseInt(thing.getCollectCount()) - 1));
         mapper.updateById(thing);
     }
 

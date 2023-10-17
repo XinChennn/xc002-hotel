@@ -2,11 +2,15 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.gk.study.mapper.ThingCollectMapper">
 
-    <select id="getThingCollectList" parameterType="map" resultType="java.util.Map">
+    <select id="getThingCollectList" parameterType="String" resultType="java.util.Map">
         select A.*, B.title, B.cover
         from b_thing_collect  A
         join b_thing  B on (A.thing_id=B.id)
         where A.user_id=#{userId}
+    </select>
+
+    <select id="getTingCollectById" parameterType="long" resultType="com.gk.study.entity.ThingCollect">
+        select * from b_thing_collect where id = #{id}
     </select>
 
 </mapper>

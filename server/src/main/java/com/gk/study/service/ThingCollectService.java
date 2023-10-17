@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 public interface ThingCollectService {
+    ThingCollect getTingCollectById(Long id);
     List<Map> getThingCollectList(String userId);
     void createThingCollect(ThingCollect thingCollect);
     void deleteThingCollect(String id);

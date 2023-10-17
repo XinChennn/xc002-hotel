@@ -78,7 +78,14 @@ public class CommentController {
     @Transactional
     public APIResponse like(String id) throws IOException {
         Comment commentBean = service.getCommentDetail(id);
-        int likeCount = Integer.parseInt(commentBean.getLikeCount()) + 1;
+
+        int likeCount = 0;
+        if (commentBean.getLikeCount() == null) {
+            likeCount = 1;
+        } else {
+            likeCount = Integer.parseInt(commentBean.getLikeCount()) + 1;
+        }
+
         commentBean.setLikeCount(String.valueOf(likeCount));
         service.updateComment(commentBean);
         return new APIResponse(ResponeCode.SUCCESS, "更新成功");

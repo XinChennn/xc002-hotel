@@ -17,6 +17,11 @@ class ThingCollectServiceImpl extends ServiceImpl<ThingCollectMapper, ThingColle
     ThingCollectMapper mapper;
 
     @Override
+    public ThingCollect getTingCollectById(Long id) {
+        return mapper.getTingCollectById(id);
+    }
+
+    @Override
     public List<Map> getThingCollectList(String userId) {
         return mapper.getThingCollectList(userId);
     }

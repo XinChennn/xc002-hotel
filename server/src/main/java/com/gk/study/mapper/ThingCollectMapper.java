@@ -10,6 +10,7 @@ import java.util.Map;
 @Mapper
 public interface ThingCollectMapper extends BaseMapper<ThingCollect> {
 
-
     List<Map> getThingCollectList(String userId);
+
+    ThingCollect getTingCollectById(Long id);
 }

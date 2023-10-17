@@ -2,11 +2,13 @@ package com.gk.study.controller;
 
 import com.gk.study.common.APIResponse;
 import com.gk.study.common.ResponeCode;
+import com.gk.study.entity.Thing;
 import com.gk.study.entity.ThingCollect;
 import com.gk.study.permission.Access;
 import com.gk.study.permission.AccessLevel;
 import com.gk.study.service.ThingCollectService;
 import com.gk.study.service.ThingService;
+import com.gk.study.service.impl.ThingServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,9 +37,9 @@ public class ThingCollectController {
     @RequestMapping(value = "/collect", method = RequestMethod.POST)
     @Transactional
     public APIResponse collect(ThingCollect thingCollect) throws IOException {
-        if(thingCollectService.getThingCollect(thingCollect.getUserId(), thingCollect.getThingId()) != null){
+        if (thingCollectService.getThingCollect(thingCollect.getUserId(), thingCollect.getThingId()) != null) {
             return new APIResponse(ResponeCode.SUCCESS, "您已收藏过了");
-        }else {
+        } else {
             thingCollectService.createThingCollect(thingCollect);
             thingService.addCollectCount(thingCollect.getThingId());
         }
@@ -48,6 +50,13 @@ public class ThingCollectController {
     @RequestMapping(value = "/unCollect", method = RequestMethod.POST)
     @Transactional
     public APIResponse unCollect(String id) throws IOException {
+        ThingCollect tingCollectById = thingCollectService.getTingCollectById(Long.parseLong(id));
+        // 收藏数-1
+        String thingId = tingCollectById.getThingId();
+        Thing thing = thingService.getThingById(thingId);
+        thing.setCollectCount(String.valueOf(Integer.parseInt(thing.getCollectCount()) - 1));
+        thingService.updateThing(thing);
+        // 删除收藏信息
         thingCollectService.deleteThingCollect(id);
         return new APIResponse(ResponeCode.SUCCESS, "取消收藏成功");
     }
